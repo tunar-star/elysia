@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ELYSIA - Ruhla toxunan qolbaqlar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a3d62, #102a43);
+    color: #f5f1e7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  header {
+    width: 100%;
+    padding: 20px 60px;
+    background: rgba(10, 61, 98, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 5px 30px rgba(255, 215, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    margin-bottom: 50px;
+  }
+  header:hover {
+    background: rgba(10, 61, 98, 0.95);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    letter-spacing: 6px;
+    background: linear-gradient(45deg, #ffd700, #ffbf00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+      0 0 8px #ffd700,
+      0 0 15px #ffbf00,
+      0 0 25px #ffd700;
+    user-select: none;
+    cursor: default;
+  }
+
+  .chat-toggle {
+    background: linear-gradient(135deg, #ffd700, #ffbf00, #ffd700);
+    background-size: 200% 200%;
+    color: #102a43;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow:
+      0 0 15px #ffd700,
+      0 0 40px #ffbf00;
+    animation: goldPulse 5s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    user-select: none;
+  }
+  .chat-toggle:hover {
+    transform: scale(1.15);
+    box-shadow:
+      0 0 25px #ffd700,
+      0 0 60px #ffbf00;
+    animation-play-state: paused;
+  }
+  .chat-toggle:focus {
+    outline: 3px solid #ffd700;
+    outline-offset: 3px;
+  }
+  @keyframes goldPulse {
+    0%, 100% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+  }
+
+  .hero {
+    position: relative;
+    background: url('sekil15.jpg') center center/cover no-repeat fixed;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    text-align: center;
+    box-shadow: inset 0 0 0 1000px rgba(16, 42, 67, 0.75);
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.3) 0%, transparent 75%);
+    animation: pulseGlow 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(70px);
+  }
+  @keyframes pulseGlow {
+    0%, 100% {opacity: 0.35;}
+    50% {opacity: 1;}
+  }
+
+  .hero h2 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    font-weight: 800;
+    color: #ffd700;
+    text-shadow:
+      0 0 12px #ffd700,
+      0 0 30px #ffbf00,
+      0 0 45px #ffd700,
+      0 0 60px #ffbf00;
+    user-select: none;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideFadeIn 1.4s ease forwards;
+  }
+  .hero p {
+    position: relative;
+    margin-top: 22px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    max-width: 750px;
+    color: #f5f1e7aa; /* yüngül şəffaflıq */
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    user-select: none;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideFadeIn 1.4s ease forwards;
+    animation-delay: 0.75s;
+  }
+  @keyframes slideFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Buttons */
+  .services {
+    padding: 60px 20px 100px;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    background: linear-gradient(145deg, #ffd700, #ffbf00);
+    color: #102a43;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow:
+      0 6px 12px rgba(255, 215, 0, 0.9),
+      0 10px 28px rgba(255, 191, 0, 0.7),
+      inset 0 -5px 10px rgba(255, 255, 255, 0.75);
+    border: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+  .btn:hover {
+    transform: translateY(-7px) scale(1.08);
+    box-shadow:
+      0 14px 40px rgba(255, 215, 0, 1),
+      0 25px 60px rgba(255, 191, 0, 0.85),
+      inset 0 -7px 14px rgba(255, 255, 255, 0.9);
+  }
+  .btn:active {
+    transform: translateY(-3px) scale(1);
+    box-shadow:
+      0 9px 22px rgba(255, 215, 0, 0.9),
+      0 16px 38px rgba(255, 191, 0, 0.75),
+      inset 0 -5px 10px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      padding: 18px 32px;
+    }
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 5px;
+    }
+    .chat-toggle {
+      padding: 12px 32px;
+      font-size: 1rem;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 90%;
+    }
+    .services {
+      flex-direction: column;
+      gap: 28px;
+      padding: 50px 20px;
+      max-width: 95%;
+    }
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ELYSIA</h1>
+  <button class="chat-toggle" onclick="window.location.href='bot.html'" aria-label="Chatbotu aç">💬 Chat</button>
+</header>
+
+<section class="hero" role="banner" aria-label="Ana səhifənin hero bölməsi">
+  <h2>Ruhla toxunan hər qolbaqda fərq hiss olunur!</h2>
+  <p>Mən düzəldirəm, sən dəyər qat</p>
+</section>
+
+<section class="services" aria-label="Əsas düymələr bölməsi">
+  <a href="melumat.html" class="btn" aria-label="Məhsul haqqında məlumat">Məhsul haqqında məlumat</a>
+  <a href="elaqe.html" class="btn" aria-label="Əlaqə məlumatları">Əlaqə məlumatları</a>
+</section>
+
+</body>
+</html>

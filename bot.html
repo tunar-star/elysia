@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elysia Chatbot</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #0a3d62, #3c6382);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #fff;
+  }
+  header {
+    background: #1e90ff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  #chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    gap: 15px;
+  }
+
+  .message {
+    max-width: 75%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.4s forwards;
+  }
+
+  .message.user {
+    background: #82ccdd;
+    color: #0a3d62;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+  }
+
+  .message.bot {
+    background: #3c6382;
+    color: #d1d8e0;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #input-container {
+    background: #1e90ff;
+    padding: 15px 20px;
+    display: flex;
+    gap: 15px;
+  }
+
+  #chat-input {
+    flex: 1;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: background 0.3s;
+  }
+  #chat-input:focus {
+    background: #74b9ff;
+  }
+
+  #send-btn {
+    background: #0a3d62;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #send-btn:hover {
+    background: #063b50;
+  }
+
+  /* Scrollbar */
+  #chat-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  #chat-container::-webkit-scrollbar-track {
+    background: #1e90ff;
+    border-radius: 10px;
+  }
+  #chat-container::-webkit-scrollbar-thumb {
+    background: #0a3d62;
+    border-radius: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    #chat-input {
+      font-size: 1rem;
+    }
+    #send-btn {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>💬 Elysia Chatbot</header>
+
+<div id="chat-container">
+  <!-- Mesajlar burda olacaq -->
+</div>
+
+<div id="input-container">
+  <input id="chat-input" type="text" placeholder="Sualınızı yazın..." autocomplete="off" />
+  <button id="send-btn">Göndər</button>
+</div>
+
+<script>
+  const chatContainer = document.getElementById('chat-container');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-btn');
+
+  function addMessage(text, sender = 'bot') {
+    const msg = document.createElement('div');
+    msg.classList.add('message', sender);
+    msg.textContent = text;
+    chatContainer.appendChild(msg);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+  function botReply(userText) {
+    let reply = '';
+
+    const text = userText.toLowerCase();
+
+    if (text.includes('salam') || text.includes('salamlar')) {
+      reply = 'Salam! Elysia qolbaqları ilə maraqlanırsınızsa, mən buradayam kömək üçün.';
+    } else if (text.includes('məhsul') || text.includes('qolbaq')) {
+      reply = 'Bizim əl işi qolbaqlar haqqında ətraflı məlumat üçün saytımızda baxa bilərsiniz.';
+    } else if (text.includes('sifariş')) {
+      reply = 'Sifariş vermək üçün Instagram hesabımıza yazın: @elysiaashop';
+    } else if (text.includes('qiymət')) {
+      reply = 'Qiymətlərimiz məhsulun növünə və dizaynına görə dəyişir. Ətraflı məlumat üçün əlaqə saxlayın.';
+    } else if (text.includes('iş saatları')) {
+      reply = 'Biz həftənin bütün günləri 9:00-dan 18:00-dək açığıq.';
+    } else {
+      reply = 'Üzr istəyirəm, bu sualı başa düşmədim. Zəhmət olmasa başqa sual verin.';
+    }
+
+    setTimeout(() => addMessage(reply, 'bot'), 600);
+  }
+
+  function sendMessage() {
+    const text = chatInput.value.trim();
+    if (text === '') return;
+    addMessage(text, 'user');
+    botReply(text);
+    chatInput.value = '';
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  });
+</script>
+
+</body>
+</html>

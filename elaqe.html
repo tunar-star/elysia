@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Əlaqə - Elysia</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset & Basics */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0a3d62, #145da0);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  main {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    animation: fadeSlideIn 1.2s ease forwards;
+  }
+
+  /* Fade and slide animation */
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #FFD700;
+    border-radius: 3px;
+    margin-top: 6px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Contact info blocks */
+  .contact-info {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .contact-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .contact-info svg {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    fill: #FFD700;
+    margin-right: 12px;
+  }
+  .contact-text {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  /* Instagram Link */
+  .instagram-link {
+    color: #FFD700;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  .instagram-link:hover {
+    color: #fff;
+  }
+  .instagram-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #FFD700;
+    bottom: -3px;
+    left: 0;
+    border-radius: 2px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .instagram-link:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  /* Button */
+  .btn {
+    display: block;
+    margin: 30px auto 0;
+    background: #FFD700;
+    color: #0a3d62;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 40px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .btn:hover {
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.9);
+    transform: scale(1.05);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    main {
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    .contact-info {
+      font-size: 0.95rem;
+      padding: 18px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <h1>Bizimlə Əlaqə</h1>
+  <p style="text-align:center; font-style: italic; opacity: 0.85; margin-bottom: 40px;">
+    Elysia sifarişləriniz üçün hər zaman buradadır! <br />
+    Fərdi qolbaqlar və digər məhsullarımız üçün bizimlə asanlıqla əlaqə saxlayın.
+  </p>
+
+  <h2>📌 Necə sifariş verə bilərsiniz?</h2>
+
+  <div class="contact-info" title="Instagram ilə əlaqə">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm6.8 1.1a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4zM12 7a5 5 0 11.001 10.001A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+    <span class="contact-text">Instagram hesabımıza yazın — <a href="https://www.instagram.com/elysiaashop" target="_blank" class="instagram-link">@elysiaashop</a></span>
+  </div>
+
+  <div class="contact-info" title="Sifariş məlumatları">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H5V5h14v14zM8 8h8v2H8zm0 4h5v2H8z"/></svg>
+    <span class="contact-text">İstədiyiniz məhsulu, rəngi, ölçünü və digər istəklərinizi bizə bildirin.</span>
+  </div>
+
+  <div class="contact-info" title="Sifarişin təsdiqi">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <span class="contact-text">Sifariş təfərrüatları təsdiqlənir, hazırlanma müddəti və qiymət sizə deyilir.</span>
+  </div>
+
+  <div class="contact-info" title="Hazırlanma və çatdırılma">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8H2l10-6 10 6h-4z"/></svg>
+    <span class="contact-text">Məhsul sizin üçün toxunur və xüsusi qablaşdırmada təqdim olunur. Hazır məhsul ünvanınıza çatdırılır.</span>
+  </div>
+
+  <button class="btn" onclick="window.open('https://www.instagram.com/elysiaashop', '_blank')">İndi Sifariş Ver</button>
+</main>
+
+</body>
+</html>
